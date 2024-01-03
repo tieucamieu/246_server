@@ -12,6 +12,7 @@ export class UserController {
     try {
       let {err, data} = await this.userService.create(body);
       if(err) {
+        console.log("err", err)
         if(err?.meta?.target == "User_email_key") throw ["Email đã tồn tại!"]
         throw ["Lỗi gì đó!"]
       }
